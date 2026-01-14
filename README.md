@@ -42,6 +42,11 @@ Technisch basiert das Produkt auf Python und Selenium. Das Script:
 
 Das Script ist in einzelne Funktionen gegliedert und verwendet Wartebedingungen sowie Fallback-Mechanismen, um mit dynamischen Webelementen umzugehen.
 
+### Diagramm
+![img](PythonScriptWebscraper.png)
+
+Ablaufdiagramm der Verarbeitung von Lizenzbestellungen mit Entscheidungslogik zur Unterscheidung zwischen automatischer und manueller Bearbeitung.
+
 ### Einbettung in die Umgebung
 Das Script wird im bestehenden administrativen Umfeld eingesetzt. Die manuelle Kontrolle bleibt dort erhalten, wo sie sinnvoll ist.
 
@@ -57,37 +62,28 @@ Der Portfolioeintrag enthält keine Betriebsgeheimnisse und keine vertraulichen 
 - Screenshots/Screencast sind zensiert
 - Nur kurze Code-Snippets gezeigt
 
-## Demonstration / Highlights
-### Screencast
-- Durchlauf (zensiert): [Link zum Screencast einfügen]
+## Demonstration des Produkts
+Die Anwendung des Produkts wird mit einem zensierten Screencast und ergänzenden Screenshots demonstriert.
 
-### Screenshots (zensiert/anonymisiert)
-1. Bestellliste mit neuen/unverarbeiteten Einträgen  
-   ![Bestellliste](assets/01_orders_list.png)
+Der Screencast zeigt:
+1. Die Bestellliste mit neuen Lizenzbestellungen
+2. Die automatische Prüfung der bisherigen Lizenznutzung
+3. Den Entscheid zwischen automatischer Verarbeitung und Excel-Eintrag
+4. Die Aktualisierung des Bestellstatus
 
-2. Excel-Ausgabe nach Verarbeitung  
-   ![Excel Output](assets/02_excel_output.png)
-
-3. Logfile-Eintrag für spezielle Lizenztypen  
-   ![License Log](assets/03_license_log.png)
-
-4. Status nach erfolgreicher Verarbeitung (z.B. “ausgeliefert”)  
-   ![Status Updated](assets/04_status_updated.png)
-
-### Technische Highlights (kurz, verständlich)
+### Technical Highlights
 - **Sichere Credentials:** Login über `.env`, keine Passwörter im Code
 - **Stabilität:** `WebDriverWait` und zusätzliche Prüfungen statt unzuverlässigem “blind klicken”
 - **Fallback-Strategien:** Dropdown-Auswahl/Frames/Navigation haben Ersatzwege
 - **Audit-Trail:** Excel-Output und Logfile als Nachweis, was verarbeitet wurde
 
 ## Ausgewählte Code-Snippets (anonymisiert)
-Die folgenden Snippets zeigen zentrale Teile des Projekts (Domain/Pfade/Selektoren anonymisiert):
+Folgenden Snippets zeigen zentrale Stellen des Codes (Domain/Pfade/Selektoren anonymisiert):
 
 - Login über `.env`: [snippets/01_login_env.py](snippets/01_login_env.py)
 - Excel-Output: [snippets/02_excel_output.py](snippets/02_excel_output.py)
-- Log für Lizenztypen: [snippets/03_license_log.py](snippets/03_license_log.py)
-- Robustheit: Waits/Fallback bei Dropdowns: [snippets/04_select_fallback.py](snippets/04_select_fallback.py)
-- Prozesslogik: Erkennen neuer Bestellungen und Statuswechsel: [snippets/05_process_logic.py](snippets/05_process_logic.py)
+- Robustheit: Waits/Fallback bei Dropdowns: [snippets/04_select_fallback.py](snippets/03_select_fallback.py)
+- Prozesslogik: Erkennen neuer Bestellungen und Statuswechsel: [snippets/05_process_logic.py](snippets/04_process_logic.py)
 
 ## Reflexion
 ### Ablauf des Projekts
