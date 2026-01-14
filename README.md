@@ -43,7 +43,7 @@ Technisch basiert das Produkt auf Python und Selenium. Das Script:
 Das Script ist in einzelne Funktionen gegliedert und verwendet Wartebedingungen sowie Fallback-Mechanismen, um mit dynamischen Webelementen umzugehen.
 
 ### Diagramm
-![img](PythonScriptWebscraper.png)
+![img](assets/PythonScriptWebscraper.png)
 
 Ablaufdiagramm der Verarbeitung von Lizenzbestellungen mit Entscheidungslogik zur Unterscheidung zwischen automatischer und manueller Bearbeitung.
 
@@ -75,7 +75,6 @@ Der Screencast zeigt:
 - **Sichere Credentials:** Login über `.env`, keine Passwörter im Code
 - **Stabilität:** `WebDriverWait` und zusätzliche Prüfungen statt unzuverlässigem “blind klicken”
 - **Fallback-Strategien:** Dropdown-Auswahl/Frames/Navigation haben Ersatzwege
-- **Audit-Trail:** Excel-Output und Logfile als Nachweis, was verarbeitet wurde
 
 ## Ausgewählte Code-Snippets (anonymisiert)
 Folgenden Snippets zeigen zentrale Stellen des Codes (Domain/Pfade/Selektoren anonymisiert):
