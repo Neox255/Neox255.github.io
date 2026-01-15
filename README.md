@@ -63,7 +63,7 @@ Der Portfolioeintrag enthält keine Betriebsgeheimnisse und keine vertraulichen 
 - Nur kurze Code-Snippets gezeigt
 
 ## Demonstration des Produkts
-Die Anwendung des Produkts wird mit einem zensierten Screencast und ergänzenden Screenshots demonstriert.
+Die Anwendung des Produkts wird mit einem zensierten Screencast demonstriert.
 
 Der Screencast zeigt:
 1. Die Bestellliste mit neuen Lizenzbestellungen
@@ -114,13 +114,15 @@ Zum Abschluss wird der Bestellstatus im Webinterface gesetzt. Es gibt mehrere Fa
 
 ## Reflexion
 ### Ablauf des Projekts
-Ich habe zuerst den manuellen Ablauf in Einzelschritte zerlegt (wo wird geklickt, welche Informationen werden benötigt, wann gilt etwas als “verarbeitet”). Dann habe ich einen Prototyp mit Selenium gebaut und ihn schrittweise aufgebaut, weil Webinterfaces häufig dynamisch sind (Ladezeiten, Elemente ändern sich, Dropdowns sind nicht immer klickbar).
+Zu Beginn habe ich den manuellen Prozess analysiert und in einzelne Schritte geteilt. Danach habe ich einen ersten Prototypen des Scripts erstellt, der nur die Navigation und das Öffnen der Bestellungen machte.
+
+In weiteren Versionen wurde die Entscheidungslogik ergänzt und der Prozess gegliedert. Dabei traten vorallem Probleme mit Ladezeiten, dynamischen Elementen und Dropdowns auf. Diese Probleme wurden durch Wartebedingungen, zusätzliche Prüfungen und Fallbacks gelöst. Am Anfang versuchte ich bestimmte Felder mit zu ungenauen Selektoren zu finden, dies führte zu Unregelmässigkeiten wenn das Script lief.
 
 ### Was ich ausprobiert habe
 - Verschiedene Strategien für stabile Navigation (Wartebedingungen, “readyState”, gezielte Elementprüfungen)
-- Fallbacks für schwierige UI-Elemente (Dropdown-Auswahl via Selenium-Select, Klick, JavaScript)
+- Fallbacks für UI-Elemente (Dropdown-Auswahl via Selenium-Select, Klick, JavaScript)
 - Schutz sensibler Daten (Credentials aus `.env`, Screenshots/Screencast zensiert)
-- Logging und Excel-Output für nachvollziehbare Resultate
+- Excel-Output für einfach zu lesende Resultate
 
 ### Schwierigkeiten und wie ich sie gelöst habe
 - **Timeouts/Ladezeiten:** konsequenter Einsatz von `WebDriverWait` statt nur `sleep`
@@ -130,19 +132,45 @@ Ich habe zuerst den manuellen Ablauf in Einzelschritte zerlegt (wo wird geklickt
 
 ### Was gut lief
 - Deutliche Zeitersparnis im Vergleich zum manuellen Prozess
-- Einheitliche Dokumentation über Excel und Logfile
-- Stabiler Ablauf durch Fallback-Mechanismen
+- Einheitliche Dokumentation über Excel
+- Stabiler Ablauf durch Fallbacks
 
 ### Was ich beim nächsten Mal anders machen würde
 - Selektoren noch robuster gestalten (weniger absolute XPaths, mehr stabile Attribute)
 - Strukturierteres Logging (Python `logging`) und optional Zusammenfassungsreport pro Lauf
 - Testbare Komponenten stärker von Selenium entkoppeln (z.B. Datenlogik separat)
 
-## Verifizierung (Belege pro Ziel)
-| Ziel | Beleg | Ort |
-|---|---|---|
-| 1 Zeitersparnis | Vergleich manuell vs. Script anhand [Anzahl] Fälle (Zeitmessung) | [kurze Notiz + Screencast / Screenshot einfügen] |
-| 2 Excel-Dokumentation | Screenshot Excel mit Beispielzeilen | `assets/02_excel_output.png` |
-| 3 Statuswechsel | Screenshot vorher/nachher oder Screencast-Stelle | `assets/01_orders_list.png`, `assets/04_status_updated.png`, Screencast |
-| 4 Robustheit | Snippet “Waits/Fallback” + optional Console-Screenshot | `snippets/04_select_fallback.py` + optional `assets/05_console.png` |
-| 5 Sichere Konfiguration | Snippet `.env`-Login + (optional) `.env.example` | `snippets/01_login_env.py` + `.env.example` |
+## Verifizierung der Ziele
+
+<h2>Verifizierung der Ziele</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ziel</th>
+      <th>Beleg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Zeitersparnis</td>
+      <td>Vergleich manueller Bearbeitung vs. automatisierter Durchlauf (Screencast)</td>
+    </tr>
+    <tr>
+      <td>Automatische Verarbeitung erfahrener LP</td>
+      <td>Screencast + Statusänderung sichtbar</td>
+    </tr>
+    <tr>
+      <td>Excel-Eintrag bei unerfahrenen LP</td>
+      <td>Excel-Datei im Screencast sichtbar</td>
+    </tr>
+    <tr>
+      <td>Entscheidungslogik</td>
+      <td>Anonymisiertes Code-Snippet</td>
+    </tr>
+    <tr>
+      <td>Stabilität</td>
+      <td>Erfolgreicher Durchlauf im Screencast</td>
+    </tr>
+  </tbody>
+</table>
