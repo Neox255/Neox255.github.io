@@ -4,9 +4,9 @@
 Python, Selenium, Web-Automation, Webscraping, Lizenzbestellungen, Excel (openpyxl), dotenv, Logging, Fehlerbehandlung, Prozessautomatisierung
 
 ## Zusammenfassung
-Bei Lizenzbestellungen ist nicht jede Bestellung gleich zu behandeln: Lehrpersonen, die eine bestimmte Lizenz bereits mehrfach genutzt haben, können ohne zusätzliche Überprüfung freigeschaltet werden. Bei weniger erfahrenen Lehrpersonen ist hingegen eine manuelle Kontrolle sinnvoll.
+Bei Lizenzbestellungen ist nicht jede Bestellung gleich zu behandeln: Lehrpersonen, die eine bestimmte Lizenz bereits mehrfach genutzt haben, können ohne zusätzliche manuelle Überprüfung diese erhalten. Bei weniger erfahrenen Lehrpersonen ist hingegen eine manuelle Kontrolle sinnvoll.
 
-Der Python-Script automatisiert diesen Entscheidungsprozess. Es durchläuft die Bestellliste, erkennt Lizenzbestellungen und prüft, wie oft die Lehrperson diese Lizenz bereits verwendet hat.  
+Das Script automatisiert den Entscheidungsprozess. Es durchläuft die Bestellliste, erkennt Lizenzbestellungen und prüft, wie oft die Lehrperson diese Lizenz bereits verwendet hat.  
 - **Bei mehr als drei bisherigen Nutzungen** wird die Bestellung automatisch verarbeitet.  
 - **Bei drei oder weniger Nutzungen** wird die Bestellung für eine manuelle Bearbeitung notiert und mit der E-Mail-Adresse der Lehrperson in einer Excel-Liste dokumentiert.
 
@@ -14,7 +14,8 @@ Dadurch werden Routinefälle automatisch verarbeitet, während Sonderfälle gezi
 Der Hauptsinn und Nutzen des Programms liegt in der Zeitersparnis bei gleichbleibender Qualität.
 
 ## Aufgabenstellung
-Der bisherige Ablauf war zeitaufwendig und fehleranfällig, Lizenzbestellungen mussten täglich manuell bearbeitet werden (Öffnen der Bestellung, Navigation zu Detailansichten der LP, Ablesen von Informationen, Dokumentation in einer Liste, Status-Update).  
+Der bisherige Ablauf war zeitaufwendig und fehleranfällig, Lizenzbestellungen mussten täglich manuell bearbeitet werden (Öffnen der Bestellung, Navigation zu Detailansichten der LP, Ablesen von Informationen, Dokumentation in einer Liste, Status-Update).
+Dabei wurden Routinefälle (erfahrene Lehrpersonen) und Fälle mit erhöhtem Prüfbedarf (wenig Erfahrung) gleich behandelt. Das führte zu unnötigem Aufwand bei Standardfällen und erschwerte die Qualitätskontrolle bei Sonderfällen.
 Ziel war es, diesen Prozess zu automatisieren, und den Ablauf so robust zu gestalten, dass er auch bei typischen Web-UI-Problemen (Ladezeiten oder dynamische Elemente) zuverlässig funktioniert.
 
 ## Ziele
