@@ -140,8 +140,6 @@ In weiteren Versionen wurde die Entscheidungslogik ergänzt und der Prozess gegl
 - Strukturierteres Logging (Python `logging`) und optional Zusammenfassungsreport pro Lauf
 - Testbare Komponenten stärker von Selenium entkoppeln (z.B. Datenlogik separat)
 
-## Verifizierung der Ziele
-
 <h2>Verifizierung der Ziele</h2>
 
 <table>
