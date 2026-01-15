@@ -73,20 +73,48 @@ Der Screencast zeigt:
 
 ### Technical Highlights
 - **Sichere Credentials:** Login über `.env`, keine Passwörter im Code
-- **Stabilität:** `WebDriverWait` und zusätzliche Prüfungen statt unzuverlässigem “blind klicken”
+- **Stabilität:** `WebDriverWait` und zusätzliche Checks statt unzuverlässigem “blind klicken”
 - **Fallback-Strategien:** Dropdown-Auswahl/Frames/Navigation haben Ersatzwege
 
-## Ausgewählte Code-Snippets (anonymisiert)
-Folgenden Snippets zeigen zentrale Stellen des Codes (Domain/Pfade/Selektoren anonymisiert):
+## Ausgewählte Code-Snippets
+Folgende Snippets zeigen zentrale Stellen des Codes (Domain/Pfade/Selektoren anonymisiert):
 
-- Login über `.env`: [snippets/01_login_env.py](snippets/01_login_env.py)
-- Excel-Output: [snippets/02_excel_output.py](snippets/02_excel_output.py)
-- Robustheit: Waits/Fallback bei Dropdowns: [snippets/04_select_fallback.py](snippets/03_select_fallback.py)
-- Prozesslogik: Erkennen neuer Bestellungen und Statuswechsel: [snippets/05_process_logic.py](snippets/04_process_logic.py)
+### 1. Login mit Umgebungsvariablen (.env)
+Der Login erfolgt über Umgebungsvariablen, damit keine Zugangsdaten im Code sind.
+
+→ [01_login_env.py](snippets/01_login_env.py)
+
+---
+
+### 2. Laden und Filtern neuer Lizenzbestellungen
+Dieses Snippet zeigt, wie die Bestellliste geladen und nur neue bzw. unverarbeitete Lizenzbestellungen berücksichtigt werden.
+
+→ [02_get_orders_filter.py](snippets/02_get_orders_filter.py)
+
+---
+
+### 3. Ermittlung der bisherigen Lizenznutzung
+Hier wird gezählt, wie oft eine Lehrperson eine bestimmte Lizenz bereits genutzt hat.
+
+→ [03_count_license_usage.py](snippets/03_count_license_usage.py)
+
+---
+
+### 4. Entscheidungslogik: automatisch oder manuell
+Kernlogik des Projekts.
+
+→ [04_decision_logic.py](snippets/04_decision_logic.py)
+
+---
+
+### 5. Status-Update mit Fallback-Mechanismen
+Zum Abschluss wird der Bestellstatus im Webinterface gesetzt. Es gibt mehrere Fallbacks.
+
+→ [05_status_update.py](snippets/05_status_update.py)
 
 ## Reflexion
 ### Ablauf des Projekts
-Ich habe zuerst den manuellen Ablauf in Einzelschritte zerlegt (wo wird geklickt, welche Informationen werden benötigt, wann gilt etwas als “verarbeitet”). Danach habe ich einen Prototyp mit Selenium gebaut und ihn schrittweise stabilisiert, weil Webinterfaces in der Praxis häufig dynamisch sind (Ladezeiten, Elemente ändern sich, Dropdowns sind nicht immer klickbar).
+Ich habe zuerst den manuellen Ablauf in Einzelschritte zerlegt (wo wird geklickt, welche Informationen werden benötigt, wann gilt etwas als “verarbeitet”). Dann habe ich einen Prototyp mit Selenium gebaut und ihn schrittweise aufgebaut, weil Webinterfaces häufig dynamisch sind (Ladezeiten, Elemente ändern sich, Dropdowns sind nicht immer klickbar).
 
 ### Was ich ausprobiert habe
 - Verschiedene Strategien für stabile Navigation (Wartebedingungen, “readyState”, gezielte Elementprüfungen)
