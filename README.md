@@ -72,6 +72,14 @@ Der Screencast zeigt:
 3. Den Entscheid zwischen automatischer Verarbeitung und Excel-Eintrag
 4. Die Aktualisierung des Bestellstatus
 
+Automatisierter Durchlauf des Scripts (zensiert):  
+[Video ansehen – screencastedited.mp4](assets/screencastedited.mp4)
+
+Manueller Ablauf einer Lizenzbestellung (zensiert):  
+[Video ansehen – manualorderedited.mp4](assets/manualorderedited.mp4)
+
+Der Zeitvergleich zwischen dem manuellen Ablauf und dem automatisierten Durchlauf ist anhand der beiden Screencasts nachvollziehbar. Der automatisierte Ablauf verarbeitet mehrere Bestellungen in deutlich kürzerer Zeit als der manuelle Prozess.
+
 ### Technical Highlights
 - **Sichere Credentials:** Login über `.env`, keine Passwörter im Code
 - **Stabilität:** `WebDriverWait` und zusätzliche Checks statt unzuverlässigem “blind klicken”
